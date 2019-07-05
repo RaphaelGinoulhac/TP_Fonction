@@ -12,6 +12,7 @@ class Trigo {
 public:
     Trigo(string s);
 
+    Fonction* derivee() const;
     float operator()(float x);
 };
 

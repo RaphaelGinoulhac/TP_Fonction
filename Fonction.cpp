@@ -21,3 +21,12 @@ float Fonction::operator()(float x){
         cerr << chaine << endl;
     }
 }
+
+Fonction::~Fonction(){
+    delete integrale;
+}
+
+
+Fonction::Fonction(Fonction const& FonctionACopier){
+    integrale = new Fonction(*(FonctionACopier.integrale));
+}

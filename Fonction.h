@@ -9,9 +9,11 @@
 class Fonction {
 
 public:
+    Fonction(Fonction const& FonctionACopier);
     virtual float operator()(float x);
     virtual Fonction* derivee() const;
     virtual float inverse(float y) const;
+    virtual ~Fonction();
 
     Fonction* integrale;
 };

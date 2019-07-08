@@ -8,8 +8,20 @@
 #include "Fonction.h"
 
 class Polynome : public Fonction {
-    Polynome();
+public:
+    Polynome(float tab[], int taille);
+
+    Fonction *clone() { return new Polynome(*this); }
+
+    float operator()(float x);
+
+    Polynome *derivee() const;
+
     ~Polynome();
+
+protected:
+    int taille;
+    float* coeff;
 };
 
 

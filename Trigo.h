@@ -6,14 +6,19 @@
 #define UNTITLED_TRIGO_H
 
 #include "Fonction.h"
-#include <string>
 
-class Trigo {
+class Trigo : public Fonction {
 public:
     Trigo(string s);
 
-    Fonction* derivee() const;
+    Fonction *clone() { return new Trigo(*this); }
+
+    Fonction *derivee() const;
+
     float operator()(float x);
+
+protected:
+    string trigo_name;
 };
 
 

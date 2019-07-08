@@ -4,16 +4,24 @@
 
 #include "Fonction.h"
 
-Fonction *Fonction::derivee() const {
+float Fonction::inverse(float y) const {
+    float x_next = 1, xi;
+    float eps = pow(10, -5);
+    Fonction *derivee = 0;
 
+    do {
+        xi = x_next;
+        derivee = this->derivee();
+        x_next = xi + (y - *this(xi)) / *derivee(xi);
+    } while (eps < fabs(x_next - xi));
 }
 
-float Fonction::operator()(float x){
+float Fonction::operator()(float x) {
     try {
         if (integrale == 0)
             throw string("Erreur");
         else {
-            eps = pow(10, -5);
+            float eps = pow(10, -5);
             return (*integrale(x + eps) - *integrale(x - eps)) / (2 * eps);
         }
     }
@@ -22,11 +30,6 @@ float Fonction::operator()(float x){
     }
 }
 
-Fonction::~Fonction(){
+Fonction::~Fonction() {
     delete integrale;
-}
-
-
-Fonction::Fonction(Fonction const& FonctionACopier){
-    integrale = new Fonction(*(FonctionACopier.integrale));
 }

@@ -4,8 +4,17 @@
 
 #include "Polynome.h"
 
-Polynome::Polynome(float* tab, int taille) {
-    taille = taille;
+
+Polynome::Polynome(int p_taille) {
+    taille = p_taille;
+    coeff = new float[taille];
+    for (int i(0); i < taille; i++) {
+        coeff[i] = 0;
+    }
+}
+
+Polynome::Polynome(float *tab, int p_taille) {
+    taille = p_taille;
     coeff = new float[taille];
     for (int i(0); i < taille; i++) {
         coeff[i] = tab[i];
@@ -29,7 +38,7 @@ Polynome *Polynome::derivee() const {
 }
 
 
-float Polynome::operator()(float x) {
+float Polynome::operator()(float x) const {
     float resultat = 0;
     for (int i(0); i < taille; i++) {
         resultat += coeff[i] * pow(x, i);

@@ -9,19 +9,15 @@
 
 class Affine : public Polynome {
 public:
+
     Affine(float a, float b);
 
-    Fonction *clone() { return new Affine(*this); }
-
-    float operator()(float x);
+    Fonction *clone() const { return new Affine(*this); }
 
     float inverse(float y) const;
 
     ~Affine();
 
-protected:
-    float pente;
-    float ordonnee_origine;
 };
 
 

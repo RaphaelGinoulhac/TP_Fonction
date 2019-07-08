@@ -4,31 +4,41 @@
 
 #include "Fonction.h"
 
+
 float Fonction::inverse(float y) const {
     float x_next = 1, xi;
     float eps = pow(10, -5);
-    Fonction *derivee = 0;
-
+    Fonction *derivee = this->derivee();
+    int compteur = 0;
     do {
         xi = x_next;
-        derivee = this->derivee();
-        x_next = xi + (y - *this(xi)) / *derivee(xi);
-    } while (eps < fabs(x_next - xi));
+        x_next = xi + (y - this->operator()(xi)) / derivee->operator()(xi);
+        compteur++;
+    } while (eps < fabs(x_next - xi) && compteur < 100);
+    delete derivee;
+    return x_next;
 }
 
-float Fonction::operator()(float x) {
+float Fonction::operator()(float x) const {
     try {
         if (integrale == 0)
             throw string("Erreur");
         else {
             float eps = pow(10, -5);
-            return (*integrale(x + eps) - *integrale(x - eps)) / (2 * eps);
+            return (integrale->operator()(x + eps) - integrale->operator()(x - eps)) / (2 * eps);
         }
     }
     catch (string const &chaine) {
         cerr << chaine << endl;
     }
 }
+
+Fonction *Fonction::derivee() const {
+    Fonction *Derivee = this->clone();
+    Derivee->integrale = this->clone();
+    return Derivee;
+}
+
 
 Fonction::~Fonction() {
     delete integrale;

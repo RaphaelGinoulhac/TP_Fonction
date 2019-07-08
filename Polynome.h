@@ -9,19 +9,21 @@
 
 class Polynome : public Fonction {
 public:
-    Polynome(float tab[], int taille);
+    Polynome(int p_taille);
 
-    Fonction *clone() { return new Polynome(*this); }
+    Polynome(float *tab, int p_taille);
 
-    float operator()(float x);
+    Fonction *clone() const { return new Polynome(*this); }
+
+    float operator()(float x) const;
 
     Polynome *derivee() const;
 
-    ~Polynome();
+    virtual ~Polynome();
 
 protected:
     int taille;
-    float* coeff;
+    float *coeff;
 };
 
 

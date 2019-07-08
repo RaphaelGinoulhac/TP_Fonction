@@ -4,21 +4,17 @@
 
 #include "Affine.h"
 
-Affine::Affine(float a, float b){
-    pente = a;
-    ordonnee_origine = b;
+
+Affine::Affine(float a, float b) : Polynome(2) {
+    coeff[0] = a;
+    coeff[1] = b;
 }
 
-
-float Affine::operator()(float x) {
-    float resultat = pente*x + ordonnee_origine;
-    return resultat;
-}
 
 float Affine::inverse(float y) const {
-    try{
-        if (pente!=0)
-            return (y-ordonnee_origine)/pente;
+    try {
+        if (coeff[1] != 0)
+            return (y - coeff[0]) / coeff[1];
         else
             throw string("L'antecedent n'est pas bien defini car la fonction est constante.");
     }
@@ -27,6 +23,6 @@ float Affine::inverse(float y) const {
     }
 }
 
-Affine::~Affine(){
+Affine::~Affine() {
 
 }

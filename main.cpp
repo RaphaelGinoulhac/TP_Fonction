@@ -11,7 +11,6 @@ int main() {
 
     Polynome *Const = Aff->derivee();
     cout << "Valeur de f'(0) : " << (*Const)(0) << endl;
-    cout << "Inverse de 10 par cette fonction constante? NaN attendu : " << Const->inverse(10) << endl;
 
     //Polynome
     int taille = 4;
@@ -24,29 +23,33 @@ int main() {
     Polynome *Cube = new Polynome(tab, taille);
 
     float inv = Cube->inverse(27);
-    cout << "Valeur calculee de 27^1/3 : " << inv << endl;
+    cout << "Valeur calculee de 27^1/3 = 3 : " << inv << endl;
 
     //Trigo
     Trigo *Tan = new Trigo("tan");
     cout << "Tan(PI/4) : " << (*Tan)(M_PI / 4) << endl;
+
     float pi = 4 * Tan->inverse(1);
-    cout << "Valeur calculee de 4*atan(1) : " << pi << endl;
+    cout << "Valeur calculee de 4*atan(1) = PI : " << pi << endl;
 
     //Derivee de Tan
     Fonction *D_Tan = Tan->derivee();
-    cout << "Derivee de tan en PI/4 : " << (*D_Tan)(M_PI / 4) << endl;
+    cout << "Derivee de tan en PI/4 = 2 : " << (*D_Tan)(M_PI / 4) << endl;
+
 
     //Derivee de Cos
     Trigo *Cos = new Trigo("cos");
+
     Fonction *D_Cos = Cos->derivee();
-    cout << "Derivee de cos en PI/2 : " << (*D_Cos)(M_PI / 2) << endl;
+    cout << "Derivee de cos en PI/2 = -1 : " << (*D_Cos)(M_PI / 2) << endl;
+
 
     //Derivee de Polynome
     Polynome *P = Cube->derivee();
-    cout << "Derivee de la fonction cube en 2 : " << (*P)(2) << endl;
+    cout << "Derivee de la fonction cube en 2 = 12 : " << (*P)(2) << endl;
 
-    //Test de mauvais appel
-    Trigo *Test = new Trigo("test");
+    Polynome *Q= P->derivee();
+    cout << "Derivee seconde de la fonction cube en 1 = 6 : " << (*Q)(1) << endl;
 
 
     delete Aff;
@@ -57,8 +60,7 @@ int main() {
     delete D_Tan;
     delete D_Cos;
     delete P;
-    delete Test;
-
+    delete Q;
 
     return 0;
 }

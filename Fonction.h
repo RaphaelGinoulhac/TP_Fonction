@@ -10,7 +10,7 @@
 #include <iostream>
 
 using namespace std;
-
+// Classe abstraite
 class Fonction {
 
 public:
@@ -19,7 +19,7 @@ public:
 
     virtual float operator()(float x) const;
 
-    virtual Fonction *derivee() const;
+    virtual Fonction *derivee() const = 0;
 
     virtual float inverse(float y) const;
 

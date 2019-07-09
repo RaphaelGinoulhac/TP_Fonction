@@ -13,6 +13,8 @@ public:
 
     Polynome(float *tab, int p_taille);
 
+    Polynome(Polynome const& PolynomeACopier);
+
     Fonction *clone() const { return new Polynome(*this); }
 
     float operator()(float x) const;
@@ -23,7 +25,7 @@ public:
 
 protected:
     int taille;
-    float *coeff;
+    float *coeff; //utilisation d'un tableau, on aurait pu prendre un vector
 };
 
 

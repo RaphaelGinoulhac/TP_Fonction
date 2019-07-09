@@ -11,17 +11,16 @@ class Trigo : public Fonction {
 public:
     Trigo(string s);
 
-    Trigo(string s, int sign);
+    Trigo(Trigo const& TrigoACopier);
 
     Fonction *clone() const { return new Trigo(*this); }
 
-    //Fonction *derivee() const;
-
     float operator()(float x) const;
+    Fonction *derivee() const;
 
 protected:
     string trigo_name;
-    int sign;
+
 };
 
 

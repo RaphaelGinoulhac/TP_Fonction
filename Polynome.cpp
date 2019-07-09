@@ -22,6 +22,16 @@ Polynome::Polynome(float *tab, int p_taille) {
 }
 
 
+Polynome::Polynome(Polynome const& PolynomeACopier){
+    taille = PolynomeACopier.taille;
+    coeff = new float[taille];
+    for (int i(0); i < taille; i++) {
+        coeff[i] = PolynomeACopier.coeff[i];
+    }
+    integrale = 0;
+}
+
+
 Polynome *Polynome::derivee() const {
     int taille_derivee = max(taille - 1, 1);
     float *coeff_derivee = new float[taille_derivee];

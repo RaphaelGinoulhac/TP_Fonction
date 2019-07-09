@@ -4,7 +4,7 @@
 
 #include "Fonction.h"
 
-
+//Pas de protection particuliere contre les divisions par 0
 float Fonction::inverse(float y) const {
     float x_next = 1, xi;
     float eps = pow(10, -5);
@@ -31,12 +31,6 @@ float Fonction::operator()(float x) const {
     catch (string const &chaine) {
         cerr << chaine << endl;
     }
-}
-
-Fonction *Fonction::derivee() const {
-    Fonction *Derivee = this->clone();
-    Derivee->integrale = this->clone();
-    return Derivee;
 }
 
 

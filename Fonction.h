@@ -15,6 +15,8 @@ class Fonction {
 
 public:
 
+    Fonction();
+
     virtual Fonction *clone() const = 0;
 
     virtual float operator()(float x) const;

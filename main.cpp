@@ -36,12 +36,15 @@ int main() {
     Fonction *D_Tan = Tan->derivee();
     cout << "Derivee de tan en PI/4 = 2 : " << (*D_Tan)(M_PI / 4) << endl;
 
-
+    
     //Derivee de Cos
     Trigo *Cos = new Trigo("cos");
 
     Fonction *D_Cos = Cos->derivee();
     cout << "Derivee de cos en PI/2 = -1 : " << (*D_Cos)(M_PI / 2) << endl;
+
+    Fonction *DD_Cos = D_Cos->derivee();
+    cout << "Derivee seconde de cos en PI/2 = 0 : " << (*DD_Cos)(M_PI / 2) << endl;
 
 
     //Derivee de Polynome
@@ -59,6 +62,7 @@ int main() {
     delete Tan;
     delete D_Tan;
     delete D_Cos;
+    delete DD_Cos;
     delete P;
     delete Q;
 

@@ -4,6 +4,10 @@
 
 #include "Fonction.h"
 
+Fonction::Fonction(){
+    integrale = 0;
+}
+
 //Pas de protection particuliere contre les divisions par 0
 float Fonction::inverse(float y) const {
     float x_next = 1, xi;

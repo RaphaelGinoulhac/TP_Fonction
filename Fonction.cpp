@@ -25,7 +25,7 @@ float Fonction::inverse(float y) const {
 
 float Fonction::operator()(float x) const {
     try {
-        if (integrale == 0)
+        if (integrale == nullptr)
             throw string("Erreur");
         else {
             float eps = pow(10, -5);

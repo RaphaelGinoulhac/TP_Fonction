@@ -28,6 +28,7 @@ Polynome::Polynome(Polynome const& PolynomeACopier){
     for (int i(0); i < taille; i++) {
         coeff[i] = PolynomeACopier.coeff[i];
     }
+    //On n'utilise jamais le champ integrale quand on manipule des polynomes, donc on peut se permettre de mettre integrale = 0 quand on fait une copie
     integrale = 0;
 }
 

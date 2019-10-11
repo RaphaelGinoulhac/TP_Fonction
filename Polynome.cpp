@@ -22,14 +22,12 @@ Polynome::Polynome(float *tab, int p_taille) {
 }
 
 
-Polynome::Polynome(Polynome const& PolynomeACopier){
+Polynome::Polynome(Polynome const &PolynomeACopier) {
     taille = PolynomeACopier.taille;
     coeff = new float[taille];
     for (int i(0); i < taille; i++) {
         coeff[i] = PolynomeACopier.coeff[i];
     }
-    //On n'utilise jamais le champ integrale quand on manipule des polynomes, donc on peut se permettre de mettre integrale = 0 quand on fait une copie
-    integrale = 0;
 }
 
 

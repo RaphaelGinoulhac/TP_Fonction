@@ -33,16 +33,20 @@ int main() {
     cout << "Valeur calculee de 4*atan(1) = PI : " << pi << endl;
 
     //Derivee de Tan
-    Fonction *D_Tan = Tan.derivee();
+    Derivee *D_Tan = Tan.derivee();
     cout << "Derivee de tan en PI/4 = 2 : " << (*D_Tan)(M_PI / 4) << endl;
+
+    //Derivee seconde de Tan
+    Derivee *DD_Tan = D_Tan->derivee();
+    cout << "Derivee seconde de tan en PI/4 = 4 : " << (*DD_Tan)(M_PI / 4) << endl;
 
     //Derivees de Cos
     Trigo Cos("cos");
 
-    Fonction *D_Cos = Cos.derivee();
+    Derivee *D_Cos = Cos.derivee();
     cout << "Derivee de cos en PI/2 = -1 : " << (*D_Cos)(M_PI / 2) << endl;
 
-    Fonction *DD_Cos = D_Cos->derivee();
+    Derivee *DD_Cos = D_Cos->derivee();
     cout << "Derivee seconde de cos en PI/2 = 0 : " << (*DD_Cos)(M_PI / 2) << endl;
 
 
@@ -57,6 +61,7 @@ int main() {
     delete Const;
     delete[] tab;
     delete D_Tan;
+    delete DD_Tan;
     delete D_Cos;
     delete DD_Cos;
     delete P;

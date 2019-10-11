@@ -16,22 +16,16 @@ float Trigo::operator()(float x) const {
         return sin(x);
     else if (trigo_name == "tan")
         return tan(x);
-    else
-        return Fonction::operator()(x);
+    else throw string("Mauvaise chaine de caractere donnee lors de la definition de la fonction Trigo");
 }
 
 
-Fonction *Trigo::derivee() const {
-    Trigo *Derivee = new Trigo("other");
-    Derivee->integrale= this->clone();
-    return Derivee;
+Derivee *Trigo::derivee() const {
+    return new Derivee(*this);
 }
 
 
-Trigo::Trigo(Trigo const& TrigoACopier){
+Trigo::Trigo(Trigo const &TrigoACopier) {
     trigo_name = TrigoACopier.trigo_name;
-    if (TrigoACopier.integrale == 0)
-        integrale = 0;
-    else
-        integrale = TrigoACopier.integrale->clone();
+
 }

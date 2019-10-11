@@ -10,25 +10,22 @@
 #include <iostream>
 
 using namespace std;
+
 // Classe abstraite
 class Fonction {
 
 public:
 
-    Fonction();
-
     virtual Fonction *clone() const = 0;
 
-    virtual float operator()(float x) const;
+    virtual float operator()(float x) const = 0;
 
     virtual Fonction *derivee() const = 0;
 
     virtual float inverse(float y) const;
 
-    virtual ~Fonction();
+    virtual ~Fonction() {};
 
-protected:
-    Fonction *integrale;
 };
 
 

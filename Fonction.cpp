@@ -4,9 +4,6 @@
 
 #include "Fonction.h"
 
-Fonction::Fonction(){
-    integrale = 0;
-}
 
 //Pas de protection particuliere contre les divisions par 0
 float Fonction::inverse(float y) const {
@@ -23,21 +20,4 @@ float Fonction::inverse(float y) const {
     return x_next;
 }
 
-float Fonction::operator()(float x) const {
-    try {
-        if (integrale == nullptr)
-            throw string("Erreur");
-        else {
-            float eps = pow(10, -5);
-            return (integrale->operator()(x + eps) - integrale->operator()(x - eps)) / (2 * eps);
-        }
-    }
-    catch (string const &chaine) {
-        cerr << chaine << endl;
-    }
-}
 
-
-Fonction::~Fonction() {
-    delete integrale;
-}

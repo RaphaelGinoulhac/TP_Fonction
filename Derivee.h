@@ -21,7 +21,7 @@ public:
 
     float operator()(float x) const;
 
-    Derivee *derivee() const;
+    Fonction *derivee() const;
 
     Fonction *clone() const { return new Derivee(*this); }
 

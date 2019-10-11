@@ -37,7 +37,7 @@ int main() {
     cout << "Derivee de tan en PI/4 = 2 : " << (*D_Tan)(M_PI / 4) << endl;
 
     //Derivee seconde de Tan
-    Derivee *DD_Tan = D_Tan->derivee();
+    Fonction *DD_Tan = D_Tan->derivee();
     cout << "Derivee seconde de tan en PI/4 = 4 : " << (*DD_Tan)(M_PI / 4) << endl;
 
     //Derivees de Cos
@@ -46,9 +46,8 @@ int main() {
     Derivee *D_Cos = Cos.derivee();
     cout << "Derivee de cos en PI/2 = -1 : " << (*D_Cos)(M_PI / 2) << endl;
 
-    Derivee *DD_Cos = D_Cos->derivee();
+    Fonction *DD_Cos = D_Cos->derivee();
     cout << "Derivee seconde de cos en PI/2 = 0 : " << (*DD_Cos)(M_PI / 2) << endl;
-
 
     //Derivees de Polynome
     Polynome *P = Cube.derivee();

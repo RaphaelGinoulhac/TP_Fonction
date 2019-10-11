@@ -15,6 +15,7 @@ float Derivee::operator()(float x) const {
     }
     catch (string const &chaine) {
         cerr << chaine << endl;
+        return INFINITY;
     }
 }
 
@@ -44,6 +45,6 @@ Derivee::Derivee(Fonction const &FonctionACopier) {
 }
 
 
-Derivee *Derivee::derivee() const {
+Fonction *Derivee::derivee() const {
     return new Derivee(*this, "derive");
 }
